@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+    margin:0;
+    padding:0;
+    font-family:'roboto', 'poppins';
+    text-decoration:none;
+    text-transform:capitalize;
+    
+}
+
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background:#5161ce;
+    align-items: center;
+    display:flex;
+    padding: 2px 3%;
+    justify-content:space-between;
+    z-index:1000;
+    
+}
+
+header .logo{
+    font-size:24px;
+    color:#ffffff;
+    font-weight:bolder;
+
+}
+header .navbar a{
+    font-size:18px;
+    padding:24px;
+    color:#ffffff;
+}
