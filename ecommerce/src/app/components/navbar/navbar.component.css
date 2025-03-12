@@ -1,37 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-*{
-    margin:0;
-    padding:0;
-    font-family:'roboto', 'poppins';
-    text-decoration:none;
-    text-transform:capitalize;
-    
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Poppins', sans-serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    box-sizing: border-box;
 }
 
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    background:#5161ce;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #5161ce;
     align-items: center;
-    display:flex;
-    padding: 2px 3%;
-    justify-content:space-between;
-    z-index:1000;
-    
+    display: flex;
+    padding: 10px 5%;
+    justify-content: space-between;
+    z-index: 1000;
 }
 
-header .logo{
-    font-size:24px;
-    color:#ffffff;
-    font-weight:bolder;
-
+header .logo {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
 }
-header .navbar a{
-    font-size:18px;
-    padding:24px;
-    color:#ffffff;
+
+header .navbar {
+    display: flex;
+    gap: 20px;
+}
+
+header .navbar a {
+    font-size: 18px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #5161ce;
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+        display: none;
+    }
+
+    header .navbar a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar.active {
+        display: flex;
+    }
 }
