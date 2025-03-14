@@ -4,23 +4,23 @@ import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true, 
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  productList: any[] = [];
 
-  productList: any [] = [];
-  constructor(private productService: ProductService){
+  constructor(private productService: ProductService) {}
 
+  ngOnInit(): void {
+    this.loadAllProducts();
   }
-  
 
-  loadAllProducts(){
-    this.productService.getAllProducts().subscribe((result: any)=>{
-       this.productList = 
-    }
-
-    )
+  loadAllProducts() {
+    this.productService.getAllProducts().subscribe((result: any) => {
+      this.productList = result.data;
+    });
   }
 }
+
