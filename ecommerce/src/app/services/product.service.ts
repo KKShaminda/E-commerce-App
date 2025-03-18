@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
+  private apiUrl = 'https://fakestoreapi.com/products'; // ✅ Correct API URL
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getAllProducts(): Observable<any> {
-    debugger;
-    return this.http.get<any[]>('http://onlinetestapi.gerasim.in/api/Ecomm/GetAllProducts');
+  getAllProducts(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 }

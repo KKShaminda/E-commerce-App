@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  standalone: true, 
+  standalone: true,
+  imports : [CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -18,9 +19,11 @@ export class HomeComponent implements OnInit {
   }
 
   loadAllProducts() {
-    this.productService.getAllProducts().subscribe((result: any) => {
-      this.productList = result.data;
+    this.productService.getAllProducts().subscribe({
+      next: (result: any[]) => {
+        this.productList = result; // ✅ API returns an array directly
+      },
+      error: (err) => console.error('Error fetching products:', err)
     });
   }
 }
-
