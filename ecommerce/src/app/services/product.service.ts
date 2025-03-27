@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
   private apiUrl = 'https://fakestoreapi.com/products'; 
+  private cartApiUrl = 'https://fakestoreapi.com/carts'; // ✅ Correct cart API URL
+  cartAddedSubject: any;
   constructor(private http: HttpClient) {}
 
   getAllProducts(): Observable<any[]> {
@@ -14,6 +16,6 @@ export class ProductService {
   }
 
   addToCart(obj : any) : Observable<any> {
-    return this.http.post<any>(this.apiUrl, obj);
+    return this.http.post<any>(this.cartApiUrl, obj);
   }
 }

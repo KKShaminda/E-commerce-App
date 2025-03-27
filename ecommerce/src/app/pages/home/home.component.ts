@@ -24,12 +24,21 @@ export class HomeComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    debugger;
     this.loadAllProducts();
   }
 
   loadAllProducts() {
     this.productService.getAllProducts().subscribe({
+      next: (result: any[]) => {
+        this.productList = result; // ✅ API returns an array directly
+      },
+      error: (err) => console.error('Error fetching products:', err)
+    });
+  }
+
+  addItemToCart(productId : number){
+    this.cartObj.ProductId = productId
+    this.productService.addToCart(this.cartObj).subscribe({
       next: (result: any[]) => {
         this.productList = result; // ✅ API returns an array directly
       },
